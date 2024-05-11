@@ -14,11 +14,14 @@ export default function Home() {
     <div className="flex place-items-center flex-col ">
       <p className="text-3xl font-bold">Todo</p>
       <AddNote />
+      <div className="flex flex-col-reverse gap-1">
+
       {
         todos && todos.map((todo:any)=>(
           <TodoRow text={todo}/>
         ))
       }
+      </div>
     </div>
   );
 }

@@ -12,7 +12,7 @@ function TodoRow({ text }: { text: any | undefined }) {
     })
   }
   return (
-    <div className='flex  group place-items-center gap-7 w-fit px-3'>
+    <div className='flex  group gap-8  pl-3 border border-slate-500 rounded-lg justify-between'>
       <CheckBox text={text}/>
       <div className='group-hover:visible invisible' onClick={handleDelete}>
         <Small />
