@@ -1,14 +1,25 @@
 "use client"
 
 import React, { useState } from 'react'
+import { useNoteListContext } from '../_context/NoteListContext'
 
-function CheckBox({ text }: { text: any | undefined }) {
-    const [check, setCheck] = useState(false);
+function CheckBox({ note}: { note: any | undefined }) {
+  const [todos, setTodos] = useNoteListContext();
+  function handleChange() {
+    setTodos((prev: any) => {
+      return prev.map((todo: any) => {
+        if (todo === note) {
+          return { ...todo, check: !todo.check }
+        }
+        return todo
+      })
+    })
 
+  }
   return (
     <div className='flex gap-1 place-items-center  '>
-      <input type="checkbox" checked={check} onChange={(e)=>{setCheck(prev=>!prev)}} />
-      <p className={`${check && "line-through"}`}>{text}</p>
+      <input type="checkbox" checked={note.check} onChange={handleChange} />
+      <p className={`${note.check && "line-through"}`} >{note.text}</p>
     </div>
   )
 }

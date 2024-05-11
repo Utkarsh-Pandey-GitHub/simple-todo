@@ -16,7 +16,7 @@ export function NoteListContextProvider(
         children:React.ReactNode
     }
 ){
-    const [todos, setTodos] = useState<any[]>([1,2,3,4,5,6,7,8,9,10])
+    const [todos, setTodos] = useState<any[]>([])
     return (
     <NoteListContext.Provider value={[todos,setTodos]}>
         {children}
